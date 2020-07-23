@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d6c759-17ad-4d06-9958-b3527a78ab3d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/userFetchJobs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Job.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/JobPagination.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userFetchJobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/userFetchJobs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +54,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595390232471</updated>
       <workItem from="1595390234122" duration="65000" />
-      <workItem from="1595390495775" duration="5051000" />
+      <workItem from="1595390495775" duration="21763000" />
     </task>
     <servers />
   </component>
@@ -73,5 +70,9 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="698" y="305" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1595390572965" />
+    <state x="625" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1595461986239">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="625" y="258" width="670" height="676" key="search.everywhere.popup/0.23.1920.1057@0.23.1920.1057" timestamp="1595461986239" />
   </component>
 </project>

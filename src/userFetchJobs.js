@@ -1,43 +1,64 @@
-import { useReducer } from "react"
+import { useReducer, useEffect } from "react";
+import axios from "axios";
+
+const ACTIONS = {
+    MAKE_REQUEST : 'make-request',
+    GET_DATA: 'get-data',
+    ERROR: 'error'
+}
+
+const baseUrl = 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json';
+
+function reducer(state, action) {
+
+    switch (action.type) {
+        case ACTIONS.MAKE_REQUEST : return {
+            ...state,
+            loading: true,
+            jobs: []
+        }
+        case ACTIONS.GET_DATA : return {
+            ...state,
+            loading: false,
+            jobs : action.payload.jobs
+        }
+        case ACTIONS.ERROR : return {
+            ...state,
+            loading: false,
+            error : action.payload.error,
+            jobs : []
+        }
+        default: return state
+    }
+
+}
 
 export default function useFetchJobs(params, page) {
 
-    const ACTIONS = {
-        MAKE_REQUEST : 'make-request',
-        GET_DATA: 'get-data',
-        ERROR: 'error'
-    }
+    const [state, dispatch] = useReducer(reducer, {jobs:[], loading: true  });
 
-    
-    function reducer(state, action) {
+    useEffect( () => {
+        const cancelToken = axios.CancelToken.source();
+        dispatch({
+            type: ACTIONS.MAKE_REQUEST
+        });
+        axios
+            .get(baseUrl, {
+                cancelToken : cancelToken.token,
+                params:{ markdown: true, page: page, ...params}
+            })
+            .then(res =>
+                dispatch({ type: ACTIONS.GET_DATA, payload: {jobs : res.data} }))
+            .catch(e => {
+                if(axios.isCancel()) return;
+                dispatch({type: ACTIONS.ERROR, payload : {error : e}});
+            })
 
-        switch (action.type) {
-            case ACTIONS.MAKE_REQUEST : return {
-                ...state,
-                loading: true,
-                jobs: []
-            }
-            case ACTIONS.GET_DATA : return {
-                ...state,
-                loading: false,
-                jobs : action.payload.jobs
-            }
-            case ACTIONS.ERROR : return {
-                ...state,
-                loading: false,
-                error : action.payload.error,
-                jobs : []
-            }
-            default: return state
+        return () => {
+            cancelToken.cancel();
         }
+    }, [params, page])
 
-    }
-
-    const [state, dispatch] = useReducer(reducer, {jobs:[], loading: false, error: false})
-    return {
-        jobs: [3,4,56,6],
-        loading: true,
-        error: true
-    }
+    return state;
 
 }
